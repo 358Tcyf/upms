@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>项目管理系统</title>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/assets/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/assets/style/admin.css" media="all">
+</head>
+<body class="layui-layout-body" layadmin-themealias="default" onbeforeunload="logout()">
+<div id="LAY_app">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <!-- 头部区域 -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item layadmin-flexible" lay-unselect="">
+                    <a href="javascript:;" layadmin-event="flexible" title="">
+                        <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item" lay-unselect="">
+                    <a href="javascript:;" layadmin-event="refresh" title="刷新">
+                        <i class="layui-icon layui-icon-refresh-3"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+
+                <li class="layui-nav-item " lay-unselect="" style=""
+                    th:attr="lay-href=${ifshow_pm_messageTable?'/pm/messageTable':'/pm/messageList'},lay-text=${ifshow_pm_messageTable?'消息管理':'站内消息'}">
+                    <a id="red-dot" onclick="cleanDot()">
+                        <i class="layui-icon layui-icon-notice"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                    <a layadmin-event="theme">
+                        <i class="layui-icon layui-icon-theme"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item layui-hide-xs" lay-unselect="" style="">
+                    <a layadmin-event="note">
+                        <i class="layui-icon layui-icon-note"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item layui-hide-xs" lay-unselect="" style="">
+                    <a layadmin-event="fullscreen">
+                        <i class="layui-icon layui-icon-screen-full"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item" lay-unselect="" style="margin-right: 30px">
+                    <a>
+                        <cite th:text="${nick}" id="nick"></cite>
+                        <span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                        <dd><a lay-href="/userInfo" style="text-align: center;">基本资料</a></dd>
+                        <hr>
+                        <dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="layui-side layui-side-menu">
+            <div class="layui-side-scroll">
+                <div class="layui-logo" lay-href="/html/projectTable.html">
+                    <span>项目管理系统</span>
+                </div>
+
+                <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu"
+                    lay-filter="layadmin-system-side-menu">
+                    <li data-name="home" class="layui-nav-item layui-nav-itemed">
+                        <a lay-tips="首页" lay-direction="2" lay-href="/html/projectTable.html">
+                            <i class="layui-icon layui-icon-home"></i>
+                            <cite>首页</cite>
+                        </a>
+
+                    </li>
+                    <li class="layui-nav-item"
+                        th:if="${ifshow_pm_messageList}">
+                        <a id="pmList" lay-tips="站内消息"
+                           onclick="cleanDot()"
+                           lay-href="/pm/messageList">
+                            <i class="layui-icon layui-icon-dialogue"></i>
+                            <cite>站内消息</cite>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item"
+                        th:if="${ifshow_pm_messageTable}">
+                        <a lay-tips="消息管理"
+                           lay-href="/pm/messageTable">
+                            <i class="layui-icon layui-icon-dialogue"></i>
+                            <cite>消息管理</cite>
+                        </a>
+                    </li>
+
+                    <li class="layui-nav-item"
+                        th:if="${ifshow_teacher_projectList}">
+                        <a lay-tips="项目管理"
+                           lay-href="/html/teacher/projectList.html">
+                            <i class="layui-icon layui-icon-form"></i>
+                            <cite>项目管理</cite>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item"
+                        th:if="${ifshow_expert_projectList}">
+                        <a lay-tips="项目评审管理"
+                           lay-href="/html/expert/projectList.html">
+                            <i class="layui-icon layui-icon-form"></i>
+                            <cite>项目评审管理</cite>
+                        </a>
+                    </li>
+
+                    <li class="layui-nav-item"
+                        th:if="${ifshow_manager_projectList}">
+                        <a lay-tips="申报管理">
+                            <i class="layui-icon layui-icon-list"></i>
+                            <cite>申报管理</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console">
+                                <a lay-href="/html/manager/projectList.html">申报审核</a>
+                            </dd>
+                        </dl>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console">
+                                <a lay-href="/html/manager/ruleManage.html">规则管理</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"
+                        th:if="${ifshow_manager_projectCheck}">
+                        <a lay-tips="阶段检查"
+                           lay-href="/html/manager/projectCheck.html">
+                            <i class="layui-icon layui-icon-survey"></i>
+                            <cite>阶段检查</cite>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item"
+                        th:if="${ifshow_rule_list}">
+                        <a lay-tips="项目申报"
+                           href="javascript:openEntrance()">
+                            <i class="layui-icon layui-icon-release"></i>
+                            <cite>项目申报</cite>
+                        </a>
+                    </li>
+
+                    <li class="layui-nav-item"
+                        th:if="${ifshow_rbac_rbac}">
+                        <a lay-tips="权限管理"
+                           lay-href="/html/rbac/rbac.html">
+                            <i class="layui-icon layui-icon-auz"></i>
+                            <cite>权限管理</cite>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layadmin-pagetabs" id="LAY_app_tabs">
+            <div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-down">
+                <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+                    <li class="layui-nav-item" lay-unselect="" style="">
+                        <a href="javascript:;"><span class="layui-nav-more"></span></a>
+                        <dl class="layui-nav-child layui-anim-fadein layui-anim layui-anim-upbit">
+                            <dd layadmin-event="closeThisTabs"><a>关闭当前标签页</a></dd>
+                            <dd layadmin-event="closeOtherTabs"><a>关闭其它标签页</a></dd>
+                            <dd layadmin-event="closeAllTabs"><a>关闭全部标签页</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="layui-tab" lay-unauto="" lay-allowclose="true" lay-filter="layadmin-layout-tabs">
+                <ul class="layui-tab-title" id="LAY_app_tabsheader">
+                    <li lay-id="/html/projectTable.html" lay-attr="/html/projectTable.html" class="layui-this" style="">
+                        <i
+                                class="layui-icon layui-icon-home"></i><i
+                            class="layui-icon layui-unselect layui-tab-close">ဆ</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body" id="LAY_app_body">
+            <div class="layadmin-tabsbody-item layui-show">
+                <iframe id="frame" src="/html/projectTable.html" frameborder="0" class="layadmin-iframe"></iframe>
+            </div>
+        </div>
+        <div class="layadmin-body-shade" layadmin-event="shade"></div>
+    </div>
+</div>
+<script src="/assets/layui/layui.js"></script>
+<script src="/js/checkUpdate.js"></script>
+<script>
+    layui.config({
+        base: '/assets/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'jquery']);
+
+    function openEntrance() {
+        layui.use(['layer'], function () {
+            var layer = layui.layer;
+            layer.open({
+                type: 2,
+                title: '申报入口',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['30%', '75%'],
+                content: '/rule/list'
+            });
+        })
+    }
+    
+    function logout() {
+        layui.$.get('/authority/logout');
+    }
+</script>
+</body>
+</html>

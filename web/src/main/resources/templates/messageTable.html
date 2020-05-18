@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>消息管理</title>
+    <link rel="stylesheet" href="../static/assets/layui/css/layui.css">
+    <link rel="stylesheet" href="../static/assets/style/admin.css">
+    <script src="../static/assets/layui/layui.js" charset="utf-8"></script>
+    <script src="../static/js/privateMessage.js" charset="utf-8"></script>
+</head>
+<body layadmin-themealias="default">
+<div class="layui-fluid">
+    <div class="layui-card">
+        <form class="layui-form layui-form-pane layui-card-header layuiadmin-card-header-auto">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">标题:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="title" name="title" placeholder="" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">接收人:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="receiver" name="receiver" placeholder="" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">消息类型:</label>
+                    <div class="layui-input-inline">
+                        <select class="select" id="type" name="type" lay-filter="type">
+                            <option value="0" selected>公告</option>
+                            <option value="1">私信</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button type="submit" class="layui-btn" lay-submit lay-filter="search" id="submit">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+
+            </div>
+        </form>
+        <div class="layui-card-body">
+            <table id="table" lay-filter="table"
+                   lay-data="{initSort: {field:'date', type:'desc'}}"></table>
+        </div>
+
+        <script type="text/html" id="toolbar">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm" lay-event="addRule">新建</button>
+            </div>
+        </script>
+
+        <script type="text/html" id="bar">
+            <b style="text-decoration:underline;color:#01AAED" lay-event="del">删除</b>
+        </script>
+    </div>
+</div>
+</body>
+</html>

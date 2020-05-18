@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目阶段检查</title>
+    <link rel="stylesheet" href="../../assets/layui/css/layui.css">
+    <link rel="stylesheet" href="../../assets/style/admin.css">
+</head>
+<body layadmin-themealias="default">
+<div class="layui-fluid">
+    <div class="layui-card">
+        <form class="layui-form layui-form-pane layui-card-header layuiadmin-card-header-auto">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">项目名称:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="name" name="name" placeholder="请输入项目名称" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">负责人:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="leader" name="leader" placeholder="请输入负责人" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">所处阶段:</label>
+                    <div class="layui-input-inline">
+                        <select class="select" id="stage" name="stage" lay-filter="select">
+                            <option value="1" selected="selected">中期检查</option>
+                            <option value="2">结题验收</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">审核状态:</label>
+                    <div class="layui-input-inline" >
+                        <select class="select" id="status" name="status" lay-filter="select">
+                            <option value="">请选择</option>
+                            <option value="0">待审核</option>
+                            <option value="1">已通过</option>
+                            <option value="3">待整改</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">创建起始:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="start" id="start" placeholder="请选择日期" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">创建截至:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="end" id="end" placeholder="请选择日期" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button type="submit" class="layui-btn" lay-submit lay-filter="search" id="submit">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="layui-card-body">
+            <table class="layui-hide" id="table" lay-filter="table"
+                   lay-data="{initSort: {field:'updateTime', type:'desc'}}"></table>
+        </div>
+
+        <script type="text/html" id="toolbar">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm" lay-event="setRule">设置检查规则</button>
+            </div>
+        </script>
+
+        <script type="text/html" id="bar">
+            <button class="layui-btn layui-btn-normal layui-btn-xs" lay-event="view">查看材料</button>
+            {{#  if(d.status != 1){ }}
+            <button class="layui-btn layui-btn-normal layui-btn-xs" lay-event="check">审 核</button>
+            {{#  } else { }}
+            <button class="layui-btn layui-btn-disabled layui-btn-xs" lay-event="check" disabled="disabled">审 核</button>
+            {{#  } }}
+        </script>
+    </div>
+</div>
+
+<script src="../../assets/layui/layui.js"></script>
+<script src="/js/checkStage.js"></script>
+</body>
+</html>
