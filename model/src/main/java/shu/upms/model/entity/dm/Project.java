@@ -35,7 +35,7 @@ public class Project {
 
     private String email;
 
-    private int major;  //专业
+    private int major;  //学科
 
     private String members; //成员列表，以json数组格式存储
 

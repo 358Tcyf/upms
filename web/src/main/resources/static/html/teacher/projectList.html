@@ -29,14 +29,15 @@
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">所属专业:</label>
+                    <label class="layui-form-label">所属学科:</label>
                     <div class="layui-input-inline">
                         <select name="major" lay-search="">
                             <option value="">请选择或输入</option>
-                            <option value="0">计算机科学与技术</option>
-                            <option value="1">电子信息工程</option>
-                            <option value="2">电子信息科学与技术</option>
-                            <option value="3">数字媒体技术</option>
+                            <option value="0">自然科学类</option>
+                            <option value="1">农业科学类</option>
+                            <option value="2">医药科学类</option>
+                            <option value="3">工程与技术科学类</option>
+                            <option value="4">人文与社会科学类</option>
                         </select>
                     </div>
                 </div>
@@ -125,12 +126,18 @@
                             case 1:return "校级二类";
                         }
                     }},
-                    {field: 'major', title: "所属专业",width:'12%',sort:true,templet:function(d){
+                    {field: 'major', title: "所属学科",width:'12%',sort:true,templet:function(d){
                         switch (d.major){
-                            case 0:return '计算机科学与技术';
-                            case 1:return '电子信息工程';
-                            case 2:return '电子信息科学与技术';
-                            case 3:return '数字媒体技术';
+                            case 0:
+                                return '自然科学类';
+                            case 1:
+                                return '农业科学类';
+                            case 2:
+                                return '医药科学类';
+                            case 3:
+                                return '工程与技术科学类';
+                            case 4:
+                                return '人文与社会科学类';
                         }
                     }},
                     {field:'entrance',title:'申报入口',sort:true,event:'showRule',width:'12%',templet:function (d) {

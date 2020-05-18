@@ -50,16 +50,18 @@
                         }
                     },
                     {
-                        field: 'major', title: "所属专业 ", sort: true, templet: function (row) {
+                        field: 'major', title: "所属学科 ", sort: true, templet: function (row) {
                             switch (row.major) {
                                 case 0:
-                                    return '计算机科学与技术'
+                                    return '自然科学类'
                                 case 1:
-                                    return '电子信息工程'
+                                    return '农业科学类'
                                 case 2:
-                                    return '电子信息科学与技术'
+                                    return '医药科学类'
                                 case 3:
-                                    return '数字媒体技术'
+                                    return '工程与技术科学类'
+                                case 4:
+                                    return '人文与社会科学类'
                                 default:
                                     return '未知'
 
@@ -181,7 +183,7 @@
             var option = {
                 color: ['#C1232B','#B5C334','#FCCE10','#E87C25',],
                 title: {
-                    text: '项目专业分布',
+                    text: '项目学科分布',
                     x: '100px',
                     y: '5px'
                 },
@@ -192,18 +194,19 @@
                 legend: {
                     orient: 'vertical',
                     left: 'right',
-                    data: ['计算机科学与技术', '电子信息工程', '电子信息科学与技术', '数字媒体技术']
+                    data: ['自然科学类', '农业科学类', '医药科学类', '工程与技术科学类','人文与社会科学类']
                 },
                 series: [
                     {
-                        name: '所属专业',
+                        name: '所属学科',
                         type: 'pie',
                         radius: '80%',
                         data: [
-                            {value: data.object.计算机科学与技术, name: '计算机科学与技术'},
-                            {value: data.object.电子信息工程, name: '电子信息工程'},
-                            {value: data.object.电子信息科学与技术, name: '电子信息科学与技术'},
-                            {value: data.object.数字媒体技术, name: '数字媒体技术'},
+                            {value: data.object.自然科学类, name: '自然科学类'},
+                            {value: data.object.农业科学类, name: '农业科学类'},
+                            {value: data.object.医药科学类, name: '医药科学类'},
+                            {value: data.object.工程与技术科学类, name: '工程与技术科学类'},
+                            {value: data.object.人文与社会科学类, name: '人文与社会科学类'},
                         ],
                         itemStyle: {
                             normal: {

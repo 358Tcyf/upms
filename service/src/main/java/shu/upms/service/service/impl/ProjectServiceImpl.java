@@ -137,10 +137,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     @Override
     public Map<String, Object> getMajorCount() {
         Map<String, Object> obj = new HashMap<>();
-        obj.put("计算机科学与技术", projectRepository.countProjectsByMajor(0));
-        obj.put("电子信息工程", projectRepository.countProjectsByMajor(1));
-        obj.put("电子信息科学与技术", projectRepository.countProjectsByMajor(2));
-        obj.put("数字媒体技术", projectRepository.countProjectsByMajor(3));
+        obj.put("自然科学类", projectRepository.countProjectsByMajor(0));
+        obj.put("农业科学类", projectRepository.countProjectsByMajor(1));
+        obj.put("医药科学类", projectRepository.countProjectsByMajor(2));
+        obj.put("工程与技术科学类", projectRepository.countProjectsByMajor(3));
+        obj.put("人文与社会科学类", projectRepository.countProjectsByMajor(4));
         return obj;
     }
 

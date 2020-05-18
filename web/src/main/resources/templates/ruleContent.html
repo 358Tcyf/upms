@@ -12,13 +12,15 @@
         <div class="layui-card-body">
             <blockquote class="layui-elem-quote layui-quote-nm" th:switch="${major}">
                 <p style="font-size: 14px;margin-top: 5px;margin-left: 5px" th:case="0">
-                    <span style="color: black">所属学科：</span><span>计算机科学与技术</span></p>
+                    <span style="color: black">所属学科：</span><span>自然科学类</span></p>
                 <p style="font-size: 14px;margin-top: 5px;margin-left: 5px" th:case="1">
-                    <span style="color: black">所属学科：</span><span>电子信息工程</span></p>
+                    <span style="color: black">所属学科：</span><span>农业科学类</span></p>
                 <p style="font-size: 14px;margin-top: 5px;margin-left: 5px" th:case="2">
-                    <span style="color: black">所属学科：</span><span>电子信息科学与技术</span></p>
+                    <span style="color: black">所属学科：</span><span>医药科学类</span></p>
                 <p style="font-size: 14px;margin-top: 5px;margin-left: 5px" th:case="3">
-                    <span style="color: black">所属学科：</span><span>数字媒体技术</span></p>
+                    <span style="color: black">所属学科：</span><span>工程与技术科学类</span></p>
+                <p style="font-size: 14px;margin-top: 5px;margin-left: 5px" th:case="4">
+                    <span style="color: black">所属学科：</span><span>人文与社会科学类</span></p>
                 <p style="font-size: 14px;margin-top: 5px;margin-left: 5px">
                     <span style="color: black">起始时间：</span><span th:text="${startTime}"></span></p>
                 <p style="font-size: 14px;margin-top: 5px;margin-left: 5px">
