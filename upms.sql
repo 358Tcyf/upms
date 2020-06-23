@@ -11,7 +11,7 @@
  Target Server Version : 80020
  File Encoding         : 65001
 
- Date: 18/05/2020 17:51:19
+ Date: 23/06/2020 13:40:16
 */
 
 SET NAMES utf8mb4;
@@ -41,6 +41,9 @@ CREATE TABLE `check_stage`  (
 -- ----------------------------
 -- Records of check_stage
 -- ----------------------------
+INSERT INTO `check_stage` VALUES (13, '2020-06-16 05:24:45', '通过', NULL, 1, '2020-06-16 05:22:24', 1, 8, 2);
+INSERT INTO `check_stage` VALUES (15, NULL, NULL, NULL, 2, '2020-06-16 05:24:45', 0, 8, NULL);
+INSERT INTO `check_stage` VALUES (23, NULL, NULL, NULL, 1, '2020-06-16 05:52:28', 0, 18, NULL);
 
 -- ----------------------------
 -- Table structure for declare_rule
@@ -62,6 +65,9 @@ CREATE TABLE `declare_rule`  (
 -- ----------------------------
 -- Records of declare_rule
 -- ----------------------------
+INSERT INTO `declare_rule` VALUES (2, '2020-03-30 16:00:00', 3, '软件体系结构课程设计', '2020-02-29 16:00:00', '软件体系结构', 2);
+INSERT INTO `declare_rule` VALUES (3, '2020-04-29 16:00:00', 3, '软件项目管理课程设计', '2020-03-31 16:00:00', '软件项目管理', 2);
+INSERT INTO `declare_rule` VALUES (4, '2020-06-30 16:00:00', 3, '规则如下：……', '2020-05-31 16:00:00', '测试项目', 2);
 
 -- ----------------------------
 -- Table structure for expert_review
@@ -84,6 +90,8 @@ CREATE TABLE `expert_review`  (
 -- ----------------------------
 -- Records of expert_review
 -- ----------------------------
+INSERT INTO `expert_review` VALUES (10, b'1', NULL, 10, 4, 8);
+INSERT INTO `expert_review` VALUES (20, b'1', NULL, 10, 4, 18);
 
 -- ----------------------------
 -- Table structure for hibernate_sequence
@@ -96,15 +104,15 @@ CREATE TABLE `hibernate_sequence`  (
 -- ----------------------------
 -- Records of hibernate_sequence
 -- ----------------------------
-INSERT INTO `hibernate_sequence` VALUES (2);
-INSERT INTO `hibernate_sequence` VALUES (2);
-INSERT INTO `hibernate_sequence` VALUES (2);
-INSERT INTO `hibernate_sequence` VALUES (2);
-INSERT INTO `hibernate_sequence` VALUES (2);
-INSERT INTO `hibernate_sequence` VALUES (2);
-INSERT INTO `hibernate_sequence` VALUES (2);
-INSERT INTO `hibernate_sequence` VALUES (2);
-INSERT INTO `hibernate_sequence` VALUES (2);
+INSERT INTO `hibernate_sequence` VALUES (24);
+INSERT INTO `hibernate_sequence` VALUES (24);
+INSERT INTO `hibernate_sequence` VALUES (24);
+INSERT INTO `hibernate_sequence` VALUES (24);
+INSERT INTO `hibernate_sequence` VALUES (24);
+INSERT INTO `hibernate_sequence` VALUES (24);
+INSERT INTO `hibernate_sequence` VALUES (24);
+INSERT INTO `hibernate_sequence` VALUES (24);
+INSERT INTO `hibernate_sequence` VALUES (24);
 
 -- ----------------------------
 -- Table structure for message
@@ -130,6 +138,13 @@ CREATE TABLE `message`  (
 -- ----------------------------
 -- Records of message
 -- ----------------------------
+INSERT INTO `message` VALUES (5, '<ul><li style=\"font-size:16px;color:#393D49;\">开始时间：2020-06-01</li><li style=\"font-size:16px;color:#393D49;\">截止时间：2020-07-01</li><li style=\"font-size:15px;\">所属学科：工程与技术科学类</li><li style=\"font-size:15px\">申报规则：规则如下：……</li></ul>', '2020-06-16 05:17:26', '{\"ruleId\":4,\"ruleTitle\":\"测试项目\",\"publisher\":2}', b'1', '测试项目申报入口通知', 0, NULL, 2);
+INSERT INTO `message` VALUES (9, '您的项目已通过初步审核，进入立项评审阶段', '2020-06-16 05:20:15', '{\"projectId\":8,\"projectName\":\"项目A\"}', b'1', '项目初步审核通过！', 1, 3, 2);
+INSERT INTO `message` VALUES (11, '项目A等待您的评审', '2020-06-16 05:20:34', '{\"projectId\":8,\"projectName\":\"项目A\"}', b'1', '立项评审工作分配', 1, 4, 2);
+INSERT INTO `message` VALUES (12, '你的项目已被立项，进入中期检查阶段！', '2020-06-16 05:22:24', '{\"projectId\":8,\"projectName\":\"项目A\"}', b'1', '项目已立项！', 1, 3, 2);
+INSERT INTO `message` VALUES (19, '您的项目已通过初步审核，进入立项评审阶段', '2020-06-16 05:48:11', '{\"projectId\":18,\"projectName\":\"项目B\"}', b'1', '项目初步审核通过！', 1, 3, 2);
+INSERT INTO `message` VALUES (21, '项目B等待您的评审', '2020-06-16 05:48:54', '{\"projectId\":18,\"projectName\":\"项目B\"}', b'1', '立项评审工作分配', 1, 4, 2);
+INSERT INTO `message` VALUES (22, '你的项目已被立项，进入中期检查阶段！', '2020-06-16 05:52:28', '{\"projectId\":18,\"projectName\":\"项目B\"}', b'0', '项目已立项！', 1, 3, 2);
 
 -- ----------------------------
 -- Table structure for permission
@@ -198,6 +213,8 @@ CREATE TABLE `project`  (
 -- ----------------------------
 -- Records of project
 -- ----------------------------
+INSERT INTO `project` VALUES (8, '2020-06-16 05:19:29', '123@qq.com', 0, 3, '[\"张三\",\"李四\"]', '项目A', '15959120000', 8, b'1', '2020-06-16 05:24:45', 7, 4, 3, 2);
+INSERT INTO `project` VALUES (18, '2020-06-16 05:28:07', '123@qq.com', 0, 3, '[\"刘某\",\"王某\"]', '项目B', '15858120000', 5, b'1', '2020-06-16 05:52:28', 17, 4, 3, 2);
 
 -- ----------------------------
 -- Table structure for project_commitment_pics
@@ -215,6 +232,8 @@ CREATE TABLE `project_commitment_pics`  (
 -- ----------------------------
 -- Records of project_commitment_pics
 -- ----------------------------
+INSERT INTO `project_commitment_pics` VALUES (8, 6);
+INSERT INTO `project_commitment_pics` VALUES (18, 16);
 
 -- ----------------------------
 -- Table structure for project_experts
@@ -232,6 +251,8 @@ CREATE TABLE `project_experts`  (
 -- ----------------------------
 -- Records of project_experts
 -- ----------------------------
+INSERT INTO `project_experts` VALUES (8, 4);
+INSERT INTO `project_experts` VALUES (18, 4);
 
 -- ----------------------------
 -- Table structure for project_file
@@ -249,6 +270,11 @@ CREATE TABLE `project_file`  (
 -- ----------------------------
 -- Records of project_file
 -- ----------------------------
+INSERT INTO `project_file` VALUES (6, '承诺书.png', '2020-06-16 05:19:25', '3035f579f8514df9825bfc173e7ab0c2');
+INSERT INTO `project_file` VALUES (7, '申报书.docx', '2020-06-16 05:19:28', 'd8b74037140a481da5d66fef5596b202');
+INSERT INTO `project_file` VALUES (14, '中期材料.docx', '2020-06-16 05:24:28', 'e961982624064e08be65668d64ce0389');
+INSERT INTO `project_file` VALUES (16, '承诺书.png', '2020-06-16 05:28:02', '7b069a2d64324d34946008f0c5aee5d8');
+INSERT INTO `project_file` VALUES (17, '申报书.docx', '2020-06-16 05:28:05', 'fb486f26acf447a9a754187374848018');
 
 -- ----------------------------
 -- Table structure for project_final_check_files
@@ -283,6 +309,7 @@ CREATE TABLE `project_mid_check_files`  (
 -- ----------------------------
 -- Records of project_mid_check_files
 -- ----------------------------
+INSERT INTO `project_mid_check_files` VALUES (8, 14);
 
 -- ----------------------------
 -- Table structure for role
@@ -356,9 +383,9 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, '2019-10-08 05:20:05', 'simple', '123456', NULL, 'Administrator', 1);
-INSERT INTO `user` VALUES (2, '2019-10-08 05:20:05', 'simple', '123456', NULL, 'M_LiuFX', 2);
-INSERT INTO `user` VALUES (3, '2019-10-08 05:20:05', 'simple', '123456', NULL, 'T_YuS', 3);
-INSERT INTO `user` VALUES (4, '2019-10-08 05:20:05', 'simple', '123456', NULL, 'E_GuWJ', 4);
+INSERT INTO `user` VALUES (1, '2019-10-08 05:20:05', 'Administrator', '123456', NULL, 'Administrator', 1);
+INSERT INTO `user` VALUES (2, '2019-10-08 05:20:05', 'M_LiuFX', '123456', NULL, 'M_LiuFX', 2);
+INSERT INTO `user` VALUES (3, '2019-10-08 05:20:05', 'T_YuS', '123456', NULL, 'T_YuS', 3);
+INSERT INTO `user` VALUES (4, '2019-10-08 05:20:05', 'E_GuWJ', '123456', NULL, 'E_GuWJ', 4);
 
 SET FOREIGN_KEY_CHECKS = 1;
