@@ -156,6 +156,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
         return obj;
     }
 
+    @Override
+    public List<Project> findNotApprovalProjects() {
+        return projectRepository.findAllByStateIsNot(5);
+    }
+
     static Collection strToCollection(String str) {
         List<Integer> integers = new ArrayList<>();
         int integer = -2;

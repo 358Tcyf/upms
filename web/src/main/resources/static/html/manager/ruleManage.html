@@ -119,7 +119,7 @@
                     {field: 'startTime', title: "起始时间",width:120,sort:true},
                     {field: 'endTime', title: "截止时间",width:120,sort:true},
                     {field:'projectNum',title:'项目数',width:100,sort:true},
-                    {field:'content',title:'申报规则'},
+                    {field:'content',title:'申报规则',event:'showRule'},
                     {title: '操作', toolbar: '#bar',width:80}
                 ]
             ],
@@ -174,6 +174,15 @@
                         }
                     });
                 })
+            }else if (obj.event==='showRule'){
+                layer.open({
+                    type: 2,
+                    title: data.content.title,
+                    shadeClose: true,
+                    shade: 0.8,
+                    area: ['30%','40%'],
+                    content: '/rule/get/'+data.entrance.id
+                });
             }
         });
 

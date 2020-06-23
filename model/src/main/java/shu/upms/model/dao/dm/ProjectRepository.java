@@ -12,6 +12,7 @@ import shu.upms.model.entity.rbac.User;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
@@ -38,5 +39,6 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 
     int countProjectsByState(int State);
 
+    List<Project> findAllByStateIsNot(int stage);
 
 }

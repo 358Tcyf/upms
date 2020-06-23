@@ -45,4 +45,6 @@ public interface ProjectService extends BaseService {
     Map<String, Object> getMajorCount();
 
     Map<String,Object> getStateCount();
+
+    List<Project> findNotApprovalProjects();
 }

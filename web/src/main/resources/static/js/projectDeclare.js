@@ -12,7 +12,7 @@ layui.use(['jquery', 'form', 'upload','layer'], function () {
         , url: '/file/upload'
         ,accept: 'images'
         ,multiple:true
-        ,exts:'jpg|png|gif|bmp|jpeg'
+        ,exts:'jpg|png|gif|bmp|jpeg|pdf'
         , choose: function (obj) {
             //预读本地文件示例，不支持ie8
             obj.preview(function (index, file, result) {

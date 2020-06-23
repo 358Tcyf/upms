@@ -1,27 +1,27 @@
 server:
   port: 8080
 
-spring:
-    datasource:
-        name: talk
-        url: jdbc:mysql://120.78.73.227:3306/upms?useSSL=false&characterEncoding=utf-8
-        username: simle233
-        password: simple233
-        driver-class-name: com.mysql.jdbc.Driver
-    devtools:
-        livereload:
-          enabled: true
-          port: 35729
-        restart:
-          enabled: false
-    thymeleaf:
-      cache: false
-      encoding: UTF-8
-      servlet:
-        content-type: text/html
-    servlet:
-      multipart:
-        max-file-size: 8MB
-        max-request-size: 10MB
+#spring:
+#    datasource:
+#        name: talk
+#        url: jdbc:mysql://120.78.73.227:3306/upms?useSSL=false&characterEncoding=utf-8
+#        username: simle233
+#        password: simple233
+#        driver-class-name: com.mysql.jdbc.Driver
+#    devtools:
+#        livereload:
+#          enabled: true
+#          port: 35729
+#        restart:
+#          enabled: false
+#    thymeleaf:
+#      cache: false
+#      encoding: UTF-8
+#      servlet:
+#        content-type: text/html
+#    servlet:
+#      multipart:
+#        max-file-size: 8MB
+#        max-request-size: 10MB
 
 

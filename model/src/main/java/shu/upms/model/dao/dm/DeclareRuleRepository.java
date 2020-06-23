@@ -14,4 +14,7 @@ public interface DeclareRuleRepository extends JpaRepository<DeclareRule,Long> {
     List<DeclareRule> findDeclareRulesByEndTimeAfter(Date date);
 
     Page<DeclareRule> queryDeclareRulesByTitleContainingAndMajorInAndStartTimeAfterAndEndTimeBefore(Pageable pageable, String title, Collection major, Date start, Date end);
+
+    DeclareRule findByTitle(String title);
+
 }
